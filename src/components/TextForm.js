@@ -16,6 +16,15 @@ const handleLowClick = () => {
     const newText = text.toLowerCase();
     setText(newText);
 }
+const handleCopyClick = () => {
+    const textElement = document.getElementById("myTextArea");
+    navigator.clipboard.writeText(textElement.value);
+}
+const handleExtraSpacesClick = () => {
+    const newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+}
+
   return(
   <>
     <div className="container my-3">
@@ -25,6 +34,8 @@ const handleLowClick = () => {
         </div>
         <button type="button" className="btn btn-primary mx-2" onClick ={handleUpClick}>Convert to Uppercase</button>
         <button type="button" className="btn btn-primary mx-2" onClick = {handleLowClick}>Convert To Lowercase</button>
+        <button type="button" className="btn btn-primary mx-2" onClick = {handleCopyClick}>Copy Text</button>
+        <button type="button" className="btn btn-primary mx-2" onClick = {handleExtraSpacesClick}>Remove extra spaces</button>
     </div>
     <div className= "container my-3">
         <h1 >Your Summary</h1>
