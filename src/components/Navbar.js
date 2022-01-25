@@ -4,10 +4,10 @@ import { PropTypes } from 'prop-types';
 export default function Navbar(props) {
   return (
       <React.Fragment>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          {/*navbar-* for color
+            bg-* for background}*/}
+          <nav className={`navbar navbar-expand-lg navbar-${props.mode==='light'?'light':'dark'} bg-${props.mode==='light'?'light':'dark'}`}>
             <div className="container-fluid">
-                {//one line comment in jsx
-                 /*mutli line comment*/}
                 <a className="navbar-brand" href="/">{props.title}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -21,6 +21,10 @@ export default function Navbar(props) {
                             <a className="nav-link" href="/">About</a>
                         </li>
                     </ul>
+                </div>
+                <div className= {`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+                    <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
+                    <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='light'?'dark':'light'} mode</label>
                 </div>
             </div>
         </nav>
