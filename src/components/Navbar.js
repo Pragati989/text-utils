@@ -1,11 +1,14 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
-function Navbar() {
+export default function Navbar(props) {
   return (
       <React.Fragment>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">Navbar</a>
+                {//one line comment in jsx
+                 /*mutli line comment*/}
+                <a className="navbar-brand" href="/">{props.title}</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -25,4 +28,11 @@ function Navbar() {
   )
 }
 
-export default Navbar;
+//comment in js
+Navbar.propTypes = {
+    title: PropTypes.string.isRequired
+}
+Navbar.defaultProps = {
+    title: "Set title here"
+}
+

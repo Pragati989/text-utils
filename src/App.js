@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <div>
-       <Navbar/> 
+       <Navbar title ="TextUtils"/> 
     </div>
   );
 }
