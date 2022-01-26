@@ -13,19 +13,23 @@ const handleOnChange = (event) =>{
 const handleUpClick = () => {
     const newText = text.toUpperCase();
     setText(newText);
+    props.displayAlert("Converted to uppercase.", "success!");
 }
 
 const handleLowClick = () => {
     const newText = text.toLowerCase();
     setText(newText);
+    props.displayAlert("Converted to lowercase.", "succes!");
 }
 const handleCopyClick = () => {
     const textElement = document.getElementById("myTextArea");
     navigator.clipboard.writeText(textElement.value);
+    props.displayAlert("Text copied.", "success!");
 }
 const handleExtraSpacesClick = () => {
     const newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.displayAlert("Extra spaces removed.", "success!");
 }
 
   return(
